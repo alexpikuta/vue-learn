@@ -1,40 +1,30 @@
 <template>
   <div id="app">
-    <div class="container pt-5">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          :class="{'is-invalid': $v.email.$error}"
-          @blur="$v.email.$touch()"
-          v-model="email"
-        >
-        <div
-          v-show="$v.email.$error"
-          class="invalid-feedback">
-          Please provide a valid information
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <router-link tag="li" to="/" class="nav-link" exact active-class="active">
+            <a class="nav-link">Home</a>
+          </router-link>
+          <router-link tag="li" to="/cars" class="nav-link" active-class="active">
+            <a class="nav-link">Cars</a>
+          </router-link>
+          <router-link tag="li" to="/car/3" class="nav-link" active-class="active">
+            <a class="nav-link">Car 3</a>
+          </router-link>
+          <router-link tag="li" to="/car/4" class="nav-link" active-class="active">
+            <a class="nav-link">Car 4</a>
+          </router-link>
+        </ul>
       </div>
-    </div>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import { required, email } from 'vuelidate/lib/validators'
 
 export default {
-  data () {
-    return {
-      email: ''
-    }
-  },
-  validations: {
-    email: {
-      required,
-      email
-    }
-  }
+
 }
 </script>
