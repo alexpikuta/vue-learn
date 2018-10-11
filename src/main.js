@@ -1,13 +1,10 @@
 import Vue from 'vue'
-import Vuelidate from 'vuelidate'
 import App from './App'
-import VueRouter from 'vue-router'
-import router from './routes'
+import VueResource from 'vue-resource'
 
-Vue.use(VueRouter)
+Vue.use(VueResource)
 
 new Vue({
   el: '#app',
-  render: h => h(App),
-  router
+  render: h => h(App)
 })
