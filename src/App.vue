@@ -35,7 +35,8 @@ export default {
     return {
       carName: '',
       carYear: 2018,
-      cars: []
+      cars: [],
+      resource: null
     }
   },
   methods: {
@@ -44,7 +45,7 @@ export default {
         name: this.carName,
         year: this.carYear
       }
-      this.$http.post('http://localhost:3000/cars', car)
+      this.resource.save({}, car)
     },
     loadCar () {
       this.$http.get('http://localhost:3000/cars')
@@ -55,6 +56,9 @@ export default {
         this.cars = cars
       })
     }
+  },
+  created () {
+    this.resource = this.$resource('http://localhost:3000/cars')
   }
 }
 </script>
